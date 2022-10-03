@@ -6,7 +6,9 @@ import style from "./UsersList.module.css";
 function UsersList({ users }) {
 	const mine = [
 		"ayishah",
+		"ayisha",
 		"aayishah",
+		"aayisha",
 		"aishat",
 		"oyin",
 		"oyinkansola",

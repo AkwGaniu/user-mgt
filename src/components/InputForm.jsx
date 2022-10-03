@@ -10,7 +10,9 @@ function InputForm({ setErrMsg, addUser }) {
 
 	const mine = [
 		"ayishah",
+		"ayisha",
 		"aayishah",
+		"aayisha",
 		"aishat",
 		"oyin",
 		"oyinkansola",
