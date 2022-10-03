@@ -11,6 +11,7 @@ function UsersList({ users }) {
 		"oyin",
 		"oyinkansola",
 		"adesewa",
+		"sewa",
 		"salami",
 		"aishah",
 	];

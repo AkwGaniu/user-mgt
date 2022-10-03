@@ -15,6 +15,7 @@ function InputForm({ setErrMsg, addUser }) {
 		"oyin",
 		"oyinkansola",
 		"adesewa",
+		"sewa",
 		"salami",
 		"aishah",
 	];
