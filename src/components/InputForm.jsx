@@ -23,7 +23,7 @@ function InputForm({ setErrMsg, addUser }) {
 	];
 
 	const handleUserNameInput = (event) => {
-		const userName = event.target.value.toString();
+		const userName = event.target.value.trim().toString();
 		setUserName(userName);
 	};
 
