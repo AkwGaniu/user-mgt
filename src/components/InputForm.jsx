@@ -8,6 +8,17 @@ function InputForm({ setErrMsg, addUser }) {
 	const [userName, setUserName] = useState("");
 	const [age, setAge] = useState(0);
 
+	const mine = [
+		"ayishah",
+		"aayishah",
+		"aishat",
+		"oyin",
+		"oyinkansola",
+		"adesewa",
+		"salami",
+		"aishah",
+	];
+
 	const handleUserNameInput = (event) => {
 		const userName = event.target.value.toString();
 		setUserName(userName);
@@ -29,6 +40,16 @@ function InputForm({ setErrMsg, addUser }) {
 		}
 		if (age <= 0) {
 			setErrMsg("Please enter a valid age (> 0)");
+			return;
+		}
+
+		if (mine.includes(userName.toLowerCase()) && age === 21) {
+			setErrMsg("Baby, Don't be in a hurry. February is almost here.");
+			return;
+		}
+
+		if (mine.includes(userName.toLowerCase()) && age !== 20) {
+			setErrMsg("Baby, that's not your age");
 			return;
 		}
 
