@@ -1,0 +1,22 @@
+/* .user_form  */
+
+.form_group {
+  width: 100%;
+}
+
+.form_group input {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid rgb(215, 215, 215);
+  padding: 5px;
+  outline: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 800;
+}
