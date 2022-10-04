@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 
 import style from "./InputForm.module.css";
 import Button from "./UI/Button";
 import Card from "./UI/Card";
 
 function InputForm({ setErrMsg, addUser }) {
-	const [userName, setUserName] = useState("");
-	const [age, setAge] = useState(0);
+	const userNameInputRef = useRef();
+	const ageInputRef = useRef();
 
 	const mine = [
 		"ayishah",
@@ -22,16 +22,9 @@ function InputForm({ setErrMsg, addUser }) {
 		"aishah",
 	];
 
-	const handleUserNameInput = (event) => {
-		const userName = event.target.value.trim().toString();
-		setUserName(userName);
-	};
-
-	const handleAGeInput = (event) => {
-		setAge(Number(event.target.value));
-	};
-
 	const handleFormSubmit = (e) => {
+		const userName = userNameInputRef.current.value.trim().toString();;
+			const age = Number(ageInputRef.current.value);;
 		e.preventDefault();
 		if (/\d/.test(userName)) {
 			setErrMsg("Invalid user name, Please enter a valid user name");
@@ -57,8 +50,9 @@ function InputForm({ setErrMsg, addUser }) {
 		}
 
 		addUser(userName, age);
-		setAge(0);
-		setUserName("");
+
+		userNameInputRef.current.value = "";
+		ageInputRef.current.value = "";
 	};
 
 	return (
@@ -66,11 +60,17 @@ function InputForm({ setErrMsg, addUser }) {
 			<form className={style.user_form}>
 				<div className={style.form_group}>
 					<label>User Name</label>
-					<input type="text" value={userName} onChange={handleUserNameInput} />
+					<input
+						type="text"
+						ref={userNameInputRef}
+					/>
 				</div>
 				<div className={style.form_group}>
 					<label>Age(Years)</label>
-					<input type="number" value={age} onChange={handleAGeInput} />
+					<input
+						type="number"
+						ref={ageInputRef}
+					/>
 				</div>
 				<Button type="submit" onClick={handleFormSubmit}>
 					Add User

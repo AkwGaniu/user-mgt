@@ -1,9 +1,10 @@
 import React from "react";
+import ReactDom from "react-dom";
 
 import style from "./ErrorModal.module.css";
 import Button from "./UI/Button";
 
-const ErrorModal = ({ msg, showError, ErrorModalToggleHandler }) => {
+const Modal = ({ msg, showError, ErrorModalToggleHandler }) => {
 	return (
 		<div
 			className={`${style.modal} ${
@@ -20,6 +21,21 @@ const ErrorModal = ({ msg, showError, ErrorModalToggleHandler }) => {
 				</div>
 			</div>
 		</div>
+	);
+};
+
+const ErrorModal = ({ msg, showError, ErrorModalToggleHandler }) => {
+	return (
+		<React.Fragment>
+			{ReactDom.createPortal(
+				<Modal
+					msg={msg}
+					showError={showError}
+					ErrorModalToggleHandler={ErrorModalToggleHandler}
+				/>,
+				document.getElementById("modal-root")
+			)}
+		</React.Fragment>
 	);
 };
 
